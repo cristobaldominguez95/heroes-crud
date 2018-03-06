@@ -7,21 +7,21 @@
       <form (ngSubmit)="save()" [formGroup]="formGroup">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" formControlName="name">
+          <input type="text" class="form-control" id="name" formControlName="name" name="name" [(ngModel)]="hero.name">
         </div>
         <div class="form-group">
           <label for="publisher">Publisher</label>
-          <select id="publisher" class="form-control" formControlName="publisher">
+          <select id="publisher" class="form-control" formControlName="publisher" name="publisher" [(ngModel)]="hero.publisher">
             <option value="Marvel">Marvel</option>
             <option value="DC">DC</option>
           </select>
         </div>
         <div class="form-group">
           <label for="bio">Bio</label>
-          <textarea id="bio" class="form-control" cols="30" rows="3" formControlName="bio"></textarea>
+          <textarea id="bio" class="form-control" cols="30" rows="3" formControlName="bio" name="bio" [(ngModel)]="hero.bio"></textarea>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-outline-primary btn-block">Save</button>
+          <button type="submit" class="btn btn-outline-primary btn-block" [disabled]="formGroup.invalid">Save</button>
         </div>
       </form>
     </div>

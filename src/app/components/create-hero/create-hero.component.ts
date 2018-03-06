@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
@@ -14,15 +14,15 @@ export class CreateHeroComponent {
     bio: ''
   };
   formGroup = new FormGroup({
-    name: new FormControl(),
-    publisher: new FormControl(),
+    name: new FormControl('', Validators.required),
+    publisher: new FormControl('', Validators.required),
     bio: new FormControl()
   });
 
   constructor() { }
 
   save(): void {
-    console.log(this.formGroup.value);
+    console.log(this.hero);
   }
 
 }
