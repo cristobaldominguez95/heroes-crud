@@ -1,14 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-create-hero',
   templateUrl: './create-hero.component.html'
 })
-export class CreateHeroComponent implements OnInit {
+export class CreateHeroComponent {
+
+  hero: Hero = {
+    name: '',
+    publisher: '',
+    bio: ''
+  };
+  formGroup = new FormGroup({
+    name: new FormControl(),
+    publisher: new FormControl(),
+    bio: new FormControl()
+  });
 
   constructor() { }
 
-  ngOnInit() {
+  save(): void {
+    console.log(this.formGroup.value);
   }
 
 }
