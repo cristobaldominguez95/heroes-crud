@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { CreateHeroComponent } from './components/create-hero/create-hero.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { HeroComponent } from './components/hero/hero.component';
 import { HeroesService } from './services/heroes.service';
 
 
@@ -17,8 +16,7 @@ import { HeroesService } from './services/heroes.service';
   declarations: [
     AppComponent,
     HeroesComponent,
-    CreateHeroComponent,
-    HeroComponent
+    CreateHeroComponent
   ],
   imports: [
     BrowserModule,

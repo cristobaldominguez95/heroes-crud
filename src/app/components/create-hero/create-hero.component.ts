@@ -15,6 +15,7 @@ export class CreateHeroComponent {
     publisher: '',
     bio: ''
   };
+  created: boolean = false;
   formGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     publisher: new FormControl('', Validators.required),
@@ -25,7 +26,7 @@ export class CreateHeroComponent {
 
   save(): void {
     this.heroesService.store(this.hero).subscribe(res => {
-      this.router.navigate(['/heroes', res['name']]);
+      this.router.navigate(['/']);
     });
   }
 
