@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Hero } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-create-hero',
@@ -19,10 +21,12 @@ export class CreateHeroComponent {
     bio: new FormControl()
   });
 
-  constructor() { }
+  constructor(private heroesService: HeroesService, private router: Router) { }
 
   save(): void {
-    console.log(this.hero);
+    this.heroesService.store(this.hero).subscribe(res => {
+      this.router.navigate(['/heroes', res['name']]);
+    });
   }
 
 }
